@@ -50,3 +50,8 @@ footer{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
 footer .brand{justify-self:start}footer p{text-align:center}
 footer>a:last-child{justify-self:end;text-align:right}
 @media(max-width:800px){footer{grid-template-columns:minmax(0,1fr);justify-items:center;gap:18px}footer .brand,footer>a:last-child{justify-self:center}footer>a:last-child{width:auto;text-align:center}}
+
+.prose .project-links{flex-wrap:wrap;row-gap:12px}
+
+/* About follows one reading column with a restrained section accent. */
+.about-heading{max-width:760px;padding-bottom:18px}.about-heading h1{margin-bottom:16px}.about-prose h2{color:var(--yellow)}

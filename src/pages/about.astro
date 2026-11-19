@@ -2,4 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 const base=import.meta.env.BASE_URL;
 ---
-<Layout title="About suprlab"><section class="wrap page-heading"><span class="eyebrow">A PERSONAL WORKSHOP</span><h1>About suprlab.</h1><p>A home for independent projects in software, hardware and sound, by slowphase.</p></section><article class="wrap prose"><p>Small devices, deep rabbit holes, and useful things learned along the way. suprlab brings together the things I build, the guides that help you explore them, and the project notes from my workbench.</p><div class="project-links"><a href={`${base}#projects`}>Explore the projects</a><a href={`${base}guides/`}>Browse the guides</a><a href="https://github.com/slowphase">Find me on GitHub</a></div></article></Layout>
+<Layout title="About suprlab">
+  <section class="wrap page-heading about-heading">
+    <span class="eyebrow">A PERSONAL WORKSHOP</span>
+    <h1>About suprlab.</h1>
+  </section>
+  <article class="wrap prose about-prose">
+    <p>suprlab is run by <a href="https://github.com/slowphase">slowphase</a>. By day I teach science. By night I take small devices apart (mostly figuratively) and try to make them a little better.</p>
+    <p>It usually starts with something small. A handheld that could sleep better. A pocket synth with more in it than the manual lets on. A display that should be doing something more interesting than telling the time. One question leads to another, and a few weeks later there’s a project.</p>
+    <p>suprlab is where those projects end up: the builds, the guides and the notes along the way. Everything is written up so the next person down the same rabbit hole has an easier time of it. Teaching has made me allergic to instructions that assume you already know the answer, so the guides here start from the beginning.</p>
+    <h2>How things get made</h2>
+    <p>I build with AI doing the programming, while I do the deciding: what it should do, how it should feel, and whether it actually works. That last part takes most of the time. Trying things, finding the rough edges and working through them.</p>
+    <p>For hardware projects, that means testing on the actual device, breaking things, fixing them and testing again. Where a guide is based on documentation rather than hands-on testing, I say so.</p>
+    <p>Nothing here is ever quite finished. That’s half the fun.</p>
+    <div class="project-links">
+      <a href={`${base}#projects`}>Explore the projects</a>
+      <a href={`${base}guides/`}>Browse the guides</a>
+      <a href="https://github.com/slowphase">Find me on GitHub</a>
+    </div>
+  </article>
+</Layout>
