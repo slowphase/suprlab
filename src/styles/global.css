@@ -20,3 +20,7 @@
 .hero-bottom .plus{color:var(--green)}
 
 .accent-green{color:var(--green)}
+
+/* A rotary dial for the hardware-and-music workbench. */
+.rotary-knob{width:180px;height:180px;display:block;flex:none}.dial-ticks{opacity:.42}.dial-face{fill:var(--panel)}
+@media(max-width:1100px){.rotary-knob{width:140px;height:140px}}
