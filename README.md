@@ -30,13 +30,17 @@ pnpm preview
 
 `ASTRO_TELEMETRY_DISABLED=1` disables Astro telemetry. The output is a static site in `dist/`. There is no server, database or runtime GitHub dependency.
 
-## Future GitHub Pages hosting
+## Hosting and updates
 
-Target repository: `slowphase/suprlab` (already exists). Publication on suprlab.net and its DNS switch are approved.
+Live site: https://suprlab.net/. Hosted on GitHub Pages from `slowphase/suprlab`.
 
-A project preview can be built with `BASE_PATH=/suprlab/ SITE_URL=https://slowphase.github.io`. The eventual domain build uses the default root path and `https://suprlab.net`. The domain, canonical metadata, indexing, RSS and old pagination paths need a final cutover review before going live. The approved domain build uses canonical URLs and allows indexing. The custom domain is configured in GitHub Pages settings.
+Cloudflare DNS points the apex domain and `www` to `slowphase.github.io` using DNS-only CNAME records (Cloudflare flattens the apex record). GitHub Pages owns the custom-domain binding, issues the certificate and enforces HTTPS. `www` redirects to the apex domain.
 
-A manually triggered Pages workflow is prepared in `.github/workflows/pages.yml`; it has no push trigger. Running it publishes and requires approval. Keep Ghost online until a full route/media audit and domain switch are approved.
+The manual workflow in `.github/workflows/pages.yml` builds at `/` with `SITE_URL=https://suprlab.net`. Push source changes, then run **Publish suprlab** in GitHub Actions when the update is ready. Source pushes alone do not publish. The site uses canonical URLs and allows indexing.
+
+A separate project-path build can be tested locally with `BASE_PATH=/suprlab/ SITE_URL=https://slowphase.github.io`; the previous GitHub preview URL now redirects to the custom domain.
+
+Ghost remains on PikaPods as a fallback and has not been retired. The original DNS record and pre-cutover GitHub Pages settings are saved in the private, ignored `.migration/` directory. Do not retire the PikaPod or remove backups without the owner's instruction.
 
 Ghost newsletter, membership and analytics services are not part of the static portfolio. The full original export remains the source backup.
 
