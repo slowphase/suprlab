@@ -1,6 +1,6 @@
 # suprlab
 
-An Astro portfolio for slowphase. This repository holds the approved portfolio preview for GitHub Pages at https://slowphase.github.io/suprlab/. The existing Ghost/PikaPods site and DNS remain unchanged.
+An Astro portfolio for slowphase. This repository holds the suprlab Astro portfolio, hosted on GitHub Pages. The domain switch to https://suprlab.net is approved. Keep the existing Ghost/PikaPods instance running until the switch has been verified.
 
 ## Content
 
@@ -32,9 +32,9 @@ pnpm preview
 
 ## Future GitHub Pages hosting
 
-Target repository: `slowphase/suprlab` (already exists). The portfolio preview is approved for publication. Publishing on suprlab.net and changing DNS require separate explicit approval.
+Target repository: `slowphase/suprlab` (already exists). Publication on suprlab.net and its DNS switch are approved.
 
-A project preview can be built with `BASE_PATH=/suprlab/ SITE_URL=https://slowphase.github.io`. The eventual domain build uses the default root path and `https://suprlab.net`. The domain, canonical metadata, indexing, RSS and old pagination paths need a final cutover review before going live. Preview pages currently have `noindex,nofollow`; remove that only at approved launch. No CNAME is present.
+A project preview can be built with `BASE_PATH=/suprlab/ SITE_URL=https://slowphase.github.io`. The eventual domain build uses the default root path and `https://suprlab.net`. The domain, canonical metadata, indexing, RSS and old pagination paths need a final cutover review before going live. The approved domain build uses canonical URLs and allows indexing. The custom domain is configured in GitHub Pages settings.
 
 A manually triggered Pages workflow is prepared in `.github/workflows/pages.yml`; it has no push trigger. Running it publishes and requires approval. Keep Ghost online until a full route/media audit and domain switch are approved.
 

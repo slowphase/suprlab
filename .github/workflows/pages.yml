@@ -1,4 +1,4 @@
-name: Publish approved Pages preview
+name: Publish suprlab
 # Manual only. Do not run without the site owner's explicit publishing approval.
 on:
   workflow_dispatch:
@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ASTRO_TELEMETRY_DISABLED: 1
-      BASE_PATH: /suprlab/
-      SITE_URL: https://slowphase.github.io
+      BASE_PATH: /
+      SITE_URL: https://suprlab.net
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
