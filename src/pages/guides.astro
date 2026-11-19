@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import guides from '../data/guides.json';
+const titles={'h1-pocket-guide':'H1 Pocket Guide','mpc-gently':'MPC, gently','shrub-gently':'SHRUB, gently','sloop-gently':'SLOOP, gently'};
+const descriptions={'h1-pocket-guide':'An iPad-friendly edition of Jake Handy’s original h1 manual, with one page for each of its fourteen instruments.','mpc-gently':'Eight relaxed lessons for the Akai MPC Sample. From your first pad to your first track.','shrub-gently':'Learn synthesis on the M-VAVE FM-1 with SHRUB, from the first note to a bank of ten original sounds.','sloop-gently':'An illustrated beginner’s guide to making music with SLOOP on the M-VAVE FM-1. Atmospheres first, drums later.'};
+---
+<Layout title="The GitHub guides — suprlab"><section class="wrap page-heading"><span class="eyebrow">THE GITHUB COLLECTION</span><h1>Get to know<br/>your little machines.</h1><p>Practical, approachable guides for making music and finding your way around. Open a handbook, take your time, and try something.</p></section><section class="wrap guide-grid">{guides.map(g=><article class="guide-card"><span class="eyebrow">HANDBOOK / MUSIC & HARDWARE</span><h2>{titles[g.name as keyof typeof titles]}</h2><p>{descriptions[g.name as keyof typeof descriptions]}</p><div class="project-links"><a href={g.homepage||g.url}>View guide</a></div></article>)}</section></Layout>

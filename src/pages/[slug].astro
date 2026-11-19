@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import posts from '../data/posts.json';
+export function getStaticPaths(){return posts.map(post=>({params:{slug:post.slug},props:{post}}));}
+const {post}=Astro.props;
+const base=import.meta.env.BASE_URL;
+const body=base==='/'?post.html:post.html.replace(/(href|src|poster)="\/(?!\/)/g,`$1="${base}`).replace(/srcset="([^"]*)"/g,(_,s)=>`srcset="${s.replace(/(^|,\s*)\//g,`$1${base}`)}"`);
+---
+<Layout title={`${post.title} — suprlab`} description={post.excerpt}><div class="wrap"><header class="article-head"><a class="eyebrow" href={`${base}projects/`}>PROJECT JOURNALS</a><h1>{post.title}</h1>{post.type==='post'&&<p class="mono">{new Date(post.published_at).toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})} · dean</p>}<div class="tag-links">{post.tags.map(t=><a href={`${base}tag/${t.slug}/`}>{t.name}</a>)}</div></header>{post.image&&<img class="article-image" src={`${base}${post.image.replace(/^\//,'')}`} alt={post.image_alt}/>}<article class="prose" set:html={body}/></div></Layout>

@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import posts from '../../data/posts.json';
+const base=import.meta.env.BASE_URL;
+const list=posts.filter(p=>p.type==='post'&&p.tags.some(t=>t.slug==='project-journal'));
+---
+<Layout title="Project journals — suprlab"><section class="wrap page-heading"><a class="eyebrow" href={base}>SUPRLAB / COLLECTIONS</a><h1>The project journals.</h1><p>Two builds from the workbench: an ambient AWTRIX display and an Endgame Switch Lite. The experiments, the details, and the notes that make them repeatable.</p></section><section class="wrap archive-list">{list.map(p=><article class="archive-entry"><div><small>{new Date(p.published_at).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}</small><h2><a href={`${base}${p.slug}/`}>{p.title}</a></h2><p>{p.excerpt}…</p></div>{p.image&&<a href={`${base}${p.slug}/`} tabindex="-1" aria-hidden="true"><img src={`${base}${p.image.replace(/^\//,'')}`} alt="" loading="lazy"/></a>}</article>)}</section></Layout>

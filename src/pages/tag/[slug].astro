@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import posts from '../../data/posts.json';
+export function getStaticPaths(){return [...new Map(posts.flatMap(p=>p.tags).map(t=>[t.slug,t])).values()].map(tag=>({params:{slug:tag.slug},props:{tag}}));}
+const {tag}=Astro.props;const base=import.meta.env.BASE_URL;
+const list=posts.filter(p=>p.tags.some(t=>t.slug===tag.slug));
+---
+<Layout title={`${tag.name} — suprlab`}><section class="wrap page-heading"><a class="eyebrow" href={`${base}projects/`}>PROJECT JOURNALS / TOPICS</a><h1>{tag.name}</h1><p>{tag.description}</p></section><section class="wrap archive-list">{list.map(p=><article class="archive-entry"><div><small>{new Date(p.published_at).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}</small><h2><a href={`${base}${p.slug}/`}>{p.title}</a></h2><p>{p.excerpt}…</p></div></article>)}</section></Layout>

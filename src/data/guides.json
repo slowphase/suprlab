@@ -1,0 +1,26 @@
+[
+  {
+    "name": "h1-pocket-guide",
+    "description": null,
+    "url": "https://github.com/slowphase/h1-pocket-guide",
+    "homepage": null
+  },
+  {
+    "name": "mpc-gently",
+    "description": "A free, illustrated beginner\u2019s handbook for the Akai MPC Sample. Eight relaxed lessons, from first pad to first track",
+    "url": "https://github.com/slowphase/mpc-gently",
+    "homepage": ""
+  },
+  {
+    "name": "shrub-gently",
+    "description": "From first note to first sound: a free illustrated handbook that teaches synthesis on the M-VAVE FM-1 with SHRUB, ending in a bank of ten original sounds.",
+    "url": "https://github.com/slowphase/shrub-gently",
+    "homepage": "https://github.com/slowphase/shrub-gently/releases/latest"
+  },
+  {
+    "name": "sloop-gently",
+    "description": "An illustrated beginner's guide to making music with SLOOP on the M-VAVE FM-1. Atmospheres first, drums later.",
+    "url": "https://github.com/slowphase/sloop-gently",
+    "homepage": ""
+  }
+]
