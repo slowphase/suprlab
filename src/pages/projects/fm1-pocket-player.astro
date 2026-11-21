@@ -2,4 +2,35 @@
 import Layout from '../../layouts/Layout.astro';
 const base=import.meta.env.BASE_URL;
 ---
-<Layout title="FM-1 Pocket Player — suprlab"><div class="wrap"><header class="article-head"><a class="eyebrow" href={`${base}#projects`}>SUPRLAB / SELECTED PROJECTS</a><h1>FM-1 Pocket Player</h1><p>A small box. A lot of sound. Explore M-VAVE FM-1 community firmware in your browser.</p><div class="project-links"><a href="https://slowphase.github.io/fm1-pocket-player/">Play in your browser</a><a href="https://github.com/slowphase/fm1-pocket-player">Repository</a><a href={`${base}guides/`}>Explore the guides</a></div></header><img class="article-image" src={`${base}projects/fm1-player.png`} alt="FM-1 Pocket Player with its firmware library open"/><article class="prose project-prose"><h2>Get curious. Turn a knob.</h2><p>Choose a firmware and its screen, sound, keys and knobs come to life on the page. No hardware or installation needed. Use your mouse, touch screen or computer keyboard to explore.</p><h2>A whole library of possibilities</h2><ul><li>A searchable firmware library, with screenshots and favourites.</li><li>A playable FM-1 panel, with keys, knobs, buttons and lights.</li><li>Sound and MIDI input in browsers that support Web MIDI.</li><li>Support for your own .rfm1 files.</li><li>Favourites and settings saved in your browser.</li></ul><p>The firmware runs through WebAssembly: its own code, rebuilt for the browser. Pocket Player plays .rfm1 files, rather than the .fwsc packages installed on a physical FM-1.</p><h2>A community effort</h2><p>Built on <a href="https://github.com/jakehandy/fm1-browser-simulator">Jake Handy’s FM-1 Browser Simulator</a>, with a firmware library sourced from <a href="https://github.com/Quixotic7/RemoteFM1FW">RemoteFM1FW, maintained by Michael P Jones (Quixotic7)</a>. Each firmware remains the work of its respective authors.</p><p>FM-1 Pocket Player is an independent community project and is not affiliated with M-VAVE.</p></article></div></Layout>
+<Layout title="FM-1 Pocket Player | suprlab">
+  <div class="wrap">
+    <header class="article-head">
+      <a class="eyebrow" href={`${base}#projects`}>SUPRLAB / SELECTED PROJECTS</a>
+      <h1>FM-1 Pocket Player</h1>
+      <p>A small box. A lot of sound. Explore M-VAVE FM-1 community firmware in your browser.</p>
+      <div class="project-links">
+        <a href="https://slowphase.github.io/fm1-pocket-player/">Play in your browser</a>
+        <a href="https://github.com/slowphase/fm1-pocket-player">Repository</a>
+        <a href={`${base}guides/`}>Explore the guides</a>
+      </div>
+    </header>
+    <img class="article-image fm1-artwork" src={`${base}projects/fm1-web-hero.webp`} width="1520" height="800" alt="FM-1 Pocket Player’s playable panel beside its searchable firmware catalogue"/>
+    <article class="prose project-prose">
+      <h2>Get curious. Turn a knob.</h2>
+      <p>Choose a firmware and its screen, sound, keys and knobs come to life on the page. No FM-1 or installation needed. Play with your mouse, touch screen or computer keyboard, or connect a MIDI keyboard in a browser with Web MIDI support, such as Chrome or Edge.</p>
+      <h2>A whole library of possibilities</h2>
+      <p>Search the catalogue, browse by category, save favourites or see what joined in the last two weeks. Each firmware has a preview and a short description, so there’s always something else worth trying.</p>
+      <p>You can also open or drop in your own <code>.fwsc</code> or <code>.rfm1</code> files. Local files are never uploaded. Favourites stay in your browser, along with settings where the firmware supports saving them.</p>
+      <h2>Two ways to play</h2>
+      <p>Original <code>.fwsc</code> packages run through <a href="https://github.com/joakimeriksson/fm1-emu">fm1-emu</a>, an emulation of the FM-1’s chip. Browser-compatible <code>.rfm1</code> builds run the firmware’s own code through the simulator engine. Both remain supported.</p>
+      <p>The player recommends an engine using compatibility and performance checks. Where both are supported, you can switch between them.</p>
+      <h2>Checked, with the limits in view</h2>
+      <p>Each firmware says how it was checked and lists known issues. Automated tests start it, play a scripted sequence and check for sound and timing. Most firmware has only passed those automated checks so far. That is useful evidence, but it does not mean someone has played every feature.</p>
+      <h2>The same library, on your Mac</h2>
+      <p>Prefer a dedicated app? <a href={`${base}projects/fm1-pocket-mac/`}>FM-1 Pocket for macOS</a> brings the same firmware ecosystem to a native library, with locally cached instruments and offline play.</p>
+      <h2>A community effort</h2>
+      <p>Built on <a href="https://github.com/jakehandy/fm1-browser-simulator">Jake Handy’s FM-1 Browser Simulator</a>, with original packages running on Joakim Eriksson’s <a href="https://github.com/joakimeriksson/fm1-emu">fm1-emu</a>. The catalogue comes from <a href="https://thefirmwarehub.com/">The Firmware Hub</a>, with <code>.rfm1</code> builds from Michael P Jones’s <a href="https://github.com/Quixotic7/RemoteFM1FW">RemoteFM1FW</a>. Each firmware remains the work of its makers and keeps its own licence.</p>
+      <p>FM-1 Pocket Player is an independent community project and is not affiliated with or endorsed by M-VAVE.</p>
+    </article>
+  </div>
+</Layout>

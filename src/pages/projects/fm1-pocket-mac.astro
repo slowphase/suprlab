@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base=import.meta.env.BASE_URL;
+---
+<Layout title="FM-1 Pocket for macOS | suprlab">
+  <div class="wrap">
+    <header class="article-head">
+      <a class="eyebrow" href={`${base}#projects`}>SUPRLAB / SELECTED PROJECTS</a>
+      <h1>FM-1 Pocket for macOS</h1>
+      <p>A world of little instruments. A proper home on your Mac.</p>
+      <div class="project-links">
+        <a href="https://github.com/slowphase/fm1-pocket-mac/releases/latest">Download for macOS</a>
+        <a href="https://github.com/slowphase/fm1-pocket-mac">Repository</a>
+        <a href="https://slowphase.github.io/fm1-pocket-player/">Try the web player</a>
+      </div>
+    </header>
+    <img class="article-image fm1-artwork" src={`${base}projects/fm1-mac-hero.webp`} width="1520" height="800" alt="FM-1 Pocket’s native Mac library with categories, firmware previews and a separate playable instrument window"/>
+    <article class="prose project-prose">
+      <h2>A library worth getting lost in</h2>
+      <p>FM-1 Pocket gathers M-VAVE FM-1 community synths, drum machines, sequencers and stranger little instruments into a native Mac app built with SwiftUI. Find something interesting, read what it does and hear it straight away. No FM-1 needed.</p>
+      <p>The Finder-style library has grid and list views, search by name, maker or description, category filters and favourites. Return to recently played instruments or browse what’s new to the library.</p>
+      <h2>Make yourself at home</h2>
+      <p>Open a firmware in its own player window, with the FM-1’s screen, keys, knobs, buttons and lights. Play with your mouse, computer keyboard or a MIDI keyboard.</p>
+      <p>Firmware you have played stays cached on your Mac, and the library works offline. Settings persist where the firmware supports saving them. Some save as you go; others have their own save button.</p>
+      <h2>Original firmware. A choice of engines.</h2>
+      <p>Original <code>.fwsc</code> packages run on <a href="https://github.com/joakimeriksson/fm1-emu">fm1-emu</a>, which emulates the FM-1’s chip. Compatible <code>.rfm1</code> builds use a port of the browser simulator engine. You can also open your own local <code>.fwsc</code> packages.</p>
+      <p>Each firmware’s details show compatibility information and a recommended engine based on compatibility and performance checks. Where both engines work, you can choose between them.</p>
+      <p>Most firmware has only passed automated checks for startup, sound and timing. Those checks are shown separately from listening tests, with known issues listed. They do not amount to manual verification of every feature.</p>
+      <h2>Bring your Mac</h2>
+      <p>You’ll need Apple silicon (M1 or newer) and macOS 14 Sonoma or newer. Download the latest release, unzip it and drag FM-1 Pocket into Applications.</p>
+      <p>The app is not notarised by Apple, so macOS may block the first launch. The repository includes <a href="https://github.com/slowphase/fm1-pocket-mac#install">installation instructions</a> for opening it through System Settings.</p>
+      <h2>One ecosystem, two ways in</h2>
+      <p>FM-1 Pocket shares its firmware ecosystem with <a href={`${base}projects/fm1-pocket-player/`}>FM-1 Pocket Player</a>. The browser version is a quick way to try something; the Mac app gives the library a dedicated home and keeps played firmware available offline.</p>
+      <p>The community makes the instruments. <a href="https://thefirmwarehub.com/">The Firmware Hub</a> supplies the catalogue, Joakim Eriksson’s emulator runs original packages, and <a href="https://github.com/Quixotic7/RemoteFM1FW">RemoteFM1FW</a> supplies <code>.rfm1</code> builds running on a port of <a href="https://github.com/jakehandy/fm1-browser-simulator">Jake Handy’s simulator</a>. Each firmware keeps its own licence and links back to its maker.</p>
+      <p>FM-1 Pocket is an independent community project and is not affiliated with or endorsed by M-VAVE.</p>
+    </article>
+  </div>
+</Layout>

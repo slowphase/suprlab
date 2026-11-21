@@ -55,3 +55,19 @@ footer>a:last-child{justify-self:end;text-align:right}
 
 /* About follows one reading column with a restrained section accent. */
 .about-heading{max-width:760px;padding-bottom:18px}.about-heading h1{margin-bottom:16px}.about-prose h2,.project-prose h2{color:var(--yellow)}
+
+/* Lead with the handheld, then pair the browser and Mac instruments. */
+.workbench-grid>.slot{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.workbench-grid>.slot .project-visual{border-radius:5px 0 0 5px;aspect-ratio:auto;min-height:300px}
+.workbench-grid>.slot .project-content{align-self:center}
+.workbench-grid>.fm1{display:flex;flex-direction:column}
+.workbench-grid>.fm1 .project-visual{flex:none}
+.workbench-grid>.fm1 .project-content{flex:1;display:flex;flex-direction:column}
+.workbench-grid>.fm1 .project-content h3{font-size:clamp(27px,2.55vw,34px)}
+.workbench-grid>.fm1 .project-content p{min-height:0;flex:1}
+.workbench-grid .project-links,.article-head .project-links{flex-wrap:wrap;row-gap:12px}
+.fm1-mac .project-meta span:first-child{color:#c4acf0}
+.fm1-artwork{height:auto;max-height:none;aspect-ratio:1.9;object-fit:cover}
+@media(max-width:1200px){.workbench-grid>.slot{display:block}.workbench-grid>.slot .project-visual{aspect-ratio:1.9;min-height:0;border-radius:5px 5px 0 0}}
+@media(max-width:800px){.workbench-grid>.fm1 .project-content h3{font-size:27px}.workbench-grid .project-links{gap:14px;font-size:14px}}
+@media(max-width:650px){.workbench-grid>.slot{grid-column:auto;display:block}.workbench-grid>.slot .project-visual{aspect-ratio:1.9;min-height:0;border-radius:5px 5px 0 0}.workbench-grid>.fm1 .project-content h3{font-size:31px}}
