@@ -1,0 +1,48 @@
+name: Review project journal formatting
+on:
+  pull_request:
+    paths:
+      - 'src/data/posts.json'
+      - 'src/pages/[slug].astro'
+      - 'src/styles/global.css'
+      - 'scripts/capture-journals-review.mjs'
+      - '.github/workflows/journals-review.yml'
+permissions:
+  contents: read
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    env:
+      ASTRO_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .journals-before
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --dir .journals-before install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build && python3 scripts/verify-build.py
+      - name: Capture both local sites on desktop, tablet and phones
+        run: |
+          pnpm preview --port 4321 > /tmp/journals-after.log 2>&1 &
+          pnpm --dir .journals-before dev --port 4322 > /tmp/journals-before.log 2>&1 &
+          for attempt in {1..40}; do
+            if curl --silent --fail http://127.0.0.1:4321/endgame-switch-lite/ > /dev/null && curl --silent --fail http://127.0.0.1:4322/endgame-switch-lite/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/capture-journals-review.mjs before http://127.0.0.1:4322 review
+          node scripts/capture-journals-review.mjs after http://127.0.0.1:4321 review
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-formatting-review
+          path: review/*
+          if-no-files-found: error
