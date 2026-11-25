@@ -27,7 +27,7 @@ const lights = (x, y) => ['#ff6058', '#ffbd2e', '#28c840'].map((fill, index) =>
 const copy = variant => {
   const lines = variant === 'web' ? ['Turn the knobs.', 'Right in your', 'browser.'] : ['Your firmware', 'library, at home', 'on your Mac.'];
   return text(variant === 'web' ? 'IN YOUR BROWSER' : 'AT HOME ON macOS', 72, 165, 22, '#dfebeb') +
-    `<g transform="translate(27 0) skewX(-7)">${text('FM-1', 72, 299, 126, '#f8f6f1', bold)}${text('Pocket', 72, 414, 126, '#f8f6f1', bold)}</g>` +
+    `<g>${text('FM-1', 72, 299, 126, '#f8f6f1', bold)}${text('Pocket', 72, 414, 126, '#f8f6f1', bold)}</g>` +
     '<rect x="72" y="452" width="66" height="5" fill="#ff914f"/>' +
     lines.map((line, index) => text(line, 72, 520 + index * 58, 48)).join('');
 };
