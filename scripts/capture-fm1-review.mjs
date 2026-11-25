@@ -1,4 +1,5 @@
 import { chromium } from 'playwright';
+import sharp from 'sharp';
 import { mkdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -36,7 +37,12 @@ try {
     const right = Math.max(...bounds.map(b => b.right));
     const bottom = Math.max(...bounds.map(b => b.bottom));
     const clip = { x, y, width: right - x, height: bottom - y };
-    await page.screenshot({ path: path.join(output, `fm1-${phase}-${name}.png`), clip });
+    // Capture the full document first: the card row can sit below the viewport.
+    const screenshot = await page.screenshot({ fullPage: true });
+    await sharp(screenshot).extract({
+      left: Math.floor(clip.x), top: Math.floor(clip.y),
+      width: Math.ceil(clip.width), height: Math.ceil(clip.height),
+    }).png().toFile(path.join(output, `fm1-${phase}-${name}.png`));
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
     if (overflow) throw new Error(`${name}: horizontal page overflow`);
     console.log(`${phase} ${name}: cards ${clip.width}x${clip.height}; no horizontal overflow`);
