@@ -7,7 +7,7 @@
   },
   {
     "name": "mpc-gently",
-    "description": "A free, illustrated beginner\u2019s handbook for the Akai MPC Sample. Eight relaxed lessons, from first pad to first track",
+    "description": "A free, illustrated beginner’s handbook for the Akai MPC Sample. Eight relaxed lessons, from first pad to first track",
     "url": "https://github.com/slowphase/mpc-gently",
     "homepage": ""
   },
@@ -22,5 +22,11 @@
     "description": "An illustrated beginner's guide to making music with SLOOP on the M-VAVE FM-1. Atmospheres first, drums later.",
     "url": "https://github.com/slowphase/sloop-gently",
     "homepage": ""
+  },
+  {
+    "name": "melodee-gently",
+    "description": "Eight relaxed lessons for the M-VAVE FM-1 running Melodee. From your first note to a short finished song.",
+    "url": "https://github.com/slowphase/melodee-gently",
+    "homepage": "https://github.com/slowphase/melodee-gently/releases/latest"
   }
 ]
