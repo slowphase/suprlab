@@ -20,12 +20,54 @@
 
 .accent-green{color:var(--green)}
 
-/* A personal Polaroid beside the headline, stacked on smaller screens. */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:50px;align-items:center}
-.hero-copy{min-width:0}.hero-polaroid{margin:0;transform:rotate(3deg);filter:drop-shadow(0 10px 16px #0005)}
-.hero-polaroid img{width:100%;height:auto;clip-path:inset(1.6% 5.8% 1.6% 5.7% round 2.5%)}
-@media(min-width:801px) and (max-width:1100px){.hero{grid-template-columns:minmax(0,1fr) 230px;gap:30px}.hero h1{font-size:clamp(54px,6.1vw,68px);letter-spacing:-3px}.hero-bottom{display:block}.hero-bottom .text-link{margin-top:22px}}
-@media(max-width:800px){.hero{grid-template-columns:minmax(0,1fr);gap:36px}.hero-polaroid{width:240px;justify-self:center}}
+/* The full-size Polaroid sits beside the copy, then stacks on narrower screens. */
+.hero {
+  --polaroid-width: 350px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--polaroid-width);
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-copy { min-width: 0; }
+
+.hero-polaroid {
+  margin: 0;
+  transform: rotate(3deg);
+  filter: drop-shadow(0 10px 16px #0005);
+  /* Align the visible edge of the rotated print with the content grid. */
+  translate: calc(var(--polaroid-width) * 0.035) 0;
+}
+
+.hero-polaroid img {
+  width: 100%;
+  height: auto;
+  clip-path: inset(1.6% 5.8% 1.6% 5.7% round 2.5%);
+}
+
+@media (801px <= width <= 1100px) {
+  .hero { --polaroid-width: 287.5px; gap: 30px; }
+  .hero h1 { font-size: clamp(54px, 6.1vw, 68px); letter-spacing: -3px; }
+}
+
+@media (max-width: 960px) {
+  .hero {
+    --polaroid-width: min(45vw, 350px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-bottom: 30px;
+  }
+
+  .hero-polaroid {
+    width: var(--polaroid-width);
+    justify-self: center;
+    translate: min(5vw, 32px) 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1 { font-size: clamp(40px, 11.65vw, 48px); }
+}
 
 /* Keep the project link below the introduction at every width. */
 .hero-bottom{display:block}.hero-bottom .text-link{margin-top:22px}
