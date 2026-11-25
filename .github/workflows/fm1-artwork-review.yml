@@ -1,0 +1,43 @@
+name: Review FM-1 artwork
+on:
+  pull_request:
+    paths:
+      - 'design/fm1-heroes/**'
+      - 'scripts/*fm1*'
+      - 'public/projects/fm1-*-hero.webp'
+      - 'src/pages/index.astro'
+      - '.github/workflows/fm1-artwork-review.yml'
+permissions:
+  contents: read
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    env:
+      ASTRO_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm render:fm1-heroes
+      - run: pnpm build && python3 scripts/verify-build.py
+      - name: Capture original and new cards on the local site
+        run: |
+          pnpm dev --port 4321 > /tmp/suprlab-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:4321/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/capture-fm1-review.mjs before review
+          node scripts/capture-fm1-review.mjs after review
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fm1-homepage-review
+          path: review/*.png
+          if-no-files-found: error
