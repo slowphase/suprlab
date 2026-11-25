@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#181818"/><text x="10" y="44" fill="#f2f1ee" font-family="monospace" font-size="40">s<tspan fill="#f9e65c">_</tspan></text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#181818"/>
+  <!-- Space Grotesk Medium outlines match the homepage headline. -->
+  <g transform="translate(8.0311 39.8113) scale(0.042802 -0.042802)">
+    <path fill="#f2f1ee" transform="translate(0 0)" d="M278 -14Q184 -14 122.0 28.0Q60 70 46 155L142 178Q150 137 169.0 113.0Q188 89 216.5 79.0Q245 69 278 69Q327 69 353.5 88.0Q380 107 380 137Q380 167 355.0 181.0Q330 195 281 204L247 210Q197 219 156.0 236.0Q115 253 91.0 283.0Q67 313 67 360Q67 430 119.0 468.5Q171 507 257 507Q340 507 393.5 469.5Q447 432 463 368L367 341Q358 386 329.0 404.5Q300 423 257 423Q215 423 191.0 407.5Q167 392 167 364Q167 334 190.5 320.0Q214 306 254 299L289 293Q342 284 386.0 268.0Q430 252 455.5 222.0Q481 192 481 142Q481 68 426.0 27.0Q371 -14 278 -14Z"/>
+    <path fill="#f9e65c" transform="translate(525 0)" d="M71 -142V-49H549V-142Z"/>
+  </g>
+</svg>
