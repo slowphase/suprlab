@@ -1,7 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import guides from '../data/guides.json';
-const titles={'h1-pocket-guide':'H1 Pocket Guide','mpc-gently':'MPC, gently','shrub-gently':'SHRUB, gently','sloop-gently':'SLOOP, gently','melodee-gently':'Melodee, Gently'};
-const descriptions={'h1-pocket-guide':'An iPad-friendly edition of Jake Handy’s original h1 manual, with one page for each of its sixteen instruments.','mpc-gently':'Eight relaxed lessons for the Akai MPC Sample. From your first pad to your first track.','shrub-gently':'Learn synthesis on the M-VAVE FM-1 with SHRUB, from the first note to a bank of ten original sounds.','sloop-gently':'An illustrated beginner’s guide to making music with SLOOP on the M-VAVE FM-1. Atmospheres first, drums later.','melodee-gently':'Eight relaxed lessons for the M-VAVE FM-1 running Melodee. From your first note to a short finished song.'};
+
+const base = import.meta.env.BASE_URL;
+const devices = [
+  { id: 'fm1', title: 'For the M-VAVE FM-1' },
+  { id: 'mpc', title: 'For the Akai MPC Sample' },
+];
+const groups = devices.map(device => ({
+  ...device,
+  guides: guides.filter(guide => guide.device === device.id).sort((a, b) => a.order - b.order),
+})).filter(device => device.guides.length > 0);
 ---
-<Layout title="The GitHub guides — suprlab"><section class="wrap page-heading"><span class="eyebrow">THE GITHUB COLLECTION</span><h1>Get to know<br/>your little machines.</h1><p>Practical, approachable guides for making music and finding your way around. Open a handbook, take your time, and try something.</p></section><section class="wrap guide-grid">{guides.map(g=><article class="guide-card"><span class="eyebrow">HANDBOOK / MUSIC & HARDWARE</span><h2>{titles[g.name as keyof typeof titles]}</h2><p>{descriptions[g.name as keyof typeof descriptions]}</p><div class="project-links"><a href={g.homepage||g.url}>View guide</a></div></article>)}</section></Layout>
+<Layout title="Handbooks & Guides | suprlab">
+  <section class="wrap page-heading">
+    <span class="eyebrow guides-eyebrow">HANDBOOKS &amp; GUIDES</span>
+    <h1>Get to know<br/>your little machines.</h1>
+    <p>Practical, approachable guides for making music and finding your way around. Open a handbook, take your time, and try something.</p>
+  </section>
+  {groups.map(group => (
+    <section class="wrap guide-section" aria-labelledby={`guides-${group.id}`}>
+      <div class="section-heading"><h2 id={`guides-${group.id}`}>{group.title}</h2></div>
+      <div class="guide-grid">
+        {group.guides.map(guide => (
+          <article class="guide-card guide-card-with-cover" data-guide={guide.name}>
+            <div class="guide-cover-frame">
+              <img class="guide-cover" src={`${base}${guide.cover.src}`} width={guide.cover.width} height={guide.cover.height} alt={guide.cover.alt} loading="lazy" decoding="async"/>
+            </div>
+            <div class="guide-card-content">
+              <span class="eyebrow">{guide.label}</span>
+              <h2>{guide.title}</h2>
+              <p>{guide.description}</p>
+              <div class="guide-card-footer">
+                <a href={guide.homepage || guide.url}>View guide</a>
+                <span class="guide-format">{guide.format} · {guide.length}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</Layout>
+
+<style>
+  .guides-eyebrow{color:var(--yellow)}
+  .guide-section{padding-bottom:56px}
+  .guide-section .guide-grid{padding-bottom:0}
+  .guide-card-with-cover{padding:0;overflow:hidden;display:flex;flex-direction:column;background:var(--panel);border-color:var(--line)}
+  .guide-cover-frame{height:356px;padding:28px;display:grid;place-items:center;background:var(--panel);border-bottom:1px solid var(--line)}
+  .guide-cover{display:block;height:300px;width:auto;max-width:100%;object-fit:contain;box-shadow:0 10px 20px #0004}
+  .guide-card-content{padding:28px;display:flex;flex-direction:column;flex:1}
+  .guide-card-content .eyebrow{margin-bottom:12px}
+  .guide-card-content h2{margin-bottom:12px}
+  .guide-card-content p{flex:1;margin-bottom:24px}
+  .guide-card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px}
+  .guide-card-footer a{font-size:15px}
+  .guide-format{font-size:13px;color:var(--muted);white-space:nowrap}
+  @media(max-width:650px){
+    .guide-section .guide-grid{grid-template-columns:1fr}
+    .guide-section{padding-bottom:40px}
+    .guide-cover-frame{height:332px;padding:24px}
+    .guide-cover{height:284px}
+    .guide-card-content{padding:24px}
+  }
+</style>

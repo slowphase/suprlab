@@ -1,32 +1,92 @@
 [
   {
     "name": "h1-pocket-guide",
-    "description": null,
+    "title": "H1 Pocket Guide",
+    "description": "An iPad-friendly edition of Jake Handy’s original h1 manual, with one page for each of its sixteen instruments.",
     "url": "https://github.com/slowphase/h1-pocket-guide",
-    "homepage": null
+    "homepage": null,
+    "device": "fm1",
+    "order": 4,
+    "label": "FM-1 / H1",
+    "format": "PDF",
+    "length": "16 instruments",
+    "cover": {
+      "src": "guides/h1-pocket-guide.webp",
+      "width": 499,
+      "height": 760,
+      "alt": "Cover of the H1 Pocket Guide, with a large h1 wordmark and a grid of sixteen instrument artworks"
+    }
   },
   {
     "name": "mpc-gently",
-    "description": "A free, illustrated beginner’s handbook for the Akai MPC Sample. Eight relaxed lessons, from first pad to first track",
+    "title": "MPC, gently",
+    "description": "Eight relaxed lessons for the Akai MPC Sample. From your first pad to your first track.",
     "url": "https://github.com/slowphase/mpc-gently",
-    "homepage": ""
+    "homepage": "",
+    "device": "mpc",
+    "order": 1,
+    "label": "AKAI MPC SAMPLE",
+    "format": "PDF",
+    "length": "8 lessons",
+    "cover": {
+      "src": "guides/mpc-gently.webp",
+      "width": 498,
+      "height": 760,
+      "alt": "Cover of MPC, gently, with an illustrated sampler panel and cream and orange lettering"
+    }
   },
   {
     "name": "shrub-gently",
-    "description": "From first note to first sound: a free illustrated handbook that teaches synthesis on the M-VAVE FM-1 with SHRUB, ending in a bank of ten original sounds.",
+    "title": "SHRUB, gently",
+    "description": "Learn synthesis with SHRUB, from the first note to a bank of ten original sounds.",
     "url": "https://github.com/slowphase/shrub-gently",
-    "homepage": "https://github.com/slowphase/shrub-gently/releases/latest"
+    "homepage": "https://github.com/slowphase/shrub-gently/releases/latest",
+    "device": "fm1",
+    "order": 2,
+    "label": "FM-1 / SHRUB",
+    "format": "PDF",
+    "length": "8 lessons",
+    "cover": {
+      "src": "guides/shrub-gently.webp",
+      "width": 498,
+      "height": 760,
+      "alt": "Cover of SHRUB, gently, with a branching tree on a green background"
+    }
   },
   {
     "name": "sloop-gently",
-    "description": "An illustrated beginner's guide to making music with SLOOP on the M-VAVE FM-1. Atmospheres first, drums later.",
+    "title": "SLOOP, gently",
+    "description": "An illustrated beginner's guide to making music with SLOOP. Atmospheres first, drums later.",
     "url": "https://github.com/slowphase/sloop-gently",
-    "homepage": ""
+    "homepage": "",
+    "device": "fm1",
+    "order": 3,
+    "label": "FM-1 / SLOOP",
+    "format": "PDF",
+    "length": "44 pages",
+    "cover": {
+      "src": "guides/sloop-gently.webp",
+      "width": 533,
+      "height": 756,
+      "alt": "Cover of SLOOP, gently, with cream lettering above a colourful wave of particles"
+    }
   },
   {
     "name": "melodee-gently",
-    "description": "Eight relaxed lessons for the M-VAVE FM-1 running Melodee. From your first note to a short finished song.",
+    "title": "Melodee, Gently",
+    "description": "Eight relaxed lessons with Melodee. From your first note to a short finished song.",
     "url": "https://github.com/slowphase/melodee-gently",
-    "homepage": "https://github.com/slowphase/melodee-gently/releases/latest"
+    "homepage": "https://github.com/slowphase/melodee-gently/releases/latest",
+    "device": "fm1",
+    "order": 1,
+    "label": "FM-1 / MELODEE",
+    "format": "PDF",
+    "length": "8 lessons",
+    "cover": {
+      "src": "guides/melodee-gently.webp",
+      "width": 499,
+      "height": 760,
+      "alt": "Cover of Melodee, Gently, with purple arcs, three notes and a keyboard"
+    }
   }
 ]

@@ -7,7 +7,8 @@
     "dev": "node scripts/render-fm1-heroes.mjs && astro dev --host 127.0.0.1",
     "build": "node scripts/render-fm1-heroes.mjs && astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "render:fm1-heroes": "node scripts/render-fm1-heroes.mjs"
+    "render:fm1-heroes": "node scripts/render-fm1-heroes.mjs",
+    "render:guide-covers": "node scripts/render-guide-covers.mjs"
   },
   "dependencies": {
     "astro": "^6.0.0",
