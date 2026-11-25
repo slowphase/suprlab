@@ -2,7 +2,9 @@
 
 Reproducible Sharp compositions using original screenshots in `source/`, a vector template, and the site’s Space Grotesk Bold and DM Sans Medium fonts. Fonts are converted to outlines so exports render consistently without installed system fonts. No generative imagery or hand-edited pixels are used.
 
-From the repository root:
+The wordmarks use upright Space Grotesk Bold. Both `pnpm build` and `pnpm dev` regenerate the images before Astro starts, keeping published artwork and local previews in sync with these sources.
+
+To regenerate the files directly from the repository root:
 
 ```bash
 pnpm install --frozen-lockfile
